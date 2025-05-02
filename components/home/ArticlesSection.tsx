@@ -1,9 +1,9 @@
-import { Article } from "@/types/Article";
 import Card from "../ui/Card";
 import ContentSection from "./ContentSection";
+import { ContentList } from "@/types/ContentList";
 
 type ArticlesSectionProps = {
-    articles: Article[];
+    articles: ContentList[];
 };
 
 const ArticlesSection = ({ articles }: ArticlesSectionProps) => {

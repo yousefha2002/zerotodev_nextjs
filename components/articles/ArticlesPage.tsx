@@ -4,19 +4,21 @@ import RandomArticles from "@/components/articles/RandomArticles";
 import TopArticles from "@/components/articles/TopArticles";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
-import articleslist from "@/data/fake/articleslist";
-import categories from "@/data/fake/categories";
+import { ArticleList } from "@/types/Article";
+import { Category } from "@/types/Category";
+import NotFoundText from "../ui/NotFoundText";
+import { ContentList } from "@/types/ContentList";
 
 type ArticlesPageProps = {
-    selectedCategory?: string;
+    categories: Category[];
+    articles: ArticleList[];
+    currentPage: number;
+    totalPages: number;
+    latestArticles:ContentList[],
+    randomArticles:ContentList[]
 };
 
-const ArticlesPage = ({ selectedCategory }: ArticlesPageProps) => {
-    // Filter articles by category if selected
-    const filteredArticles = selectedCategory
-        ? articleslist.filter(article => article.category === selectedCategory)
-        : articleslist;
-
+const ArticlesPage = ({ categories, articles, currentPage, totalPages,latestArticles,randomArticles }: ArticlesPageProps) => {
     return (
         <Container className="py-12">
             <SectionTitle
@@ -28,17 +30,21 @@ const ArticlesPage = ({ selectedCategory }: ArticlesPageProps) => {
                 {/* Sidebar */}
                 <div className="lg:col-span-4 flex flex-col gap-8">
                     <Categories categories={categories} />
-                    <TopArticles articles={articleslist} />
-                    <RandomArticles articles={articleslist} />
+                    <TopArticles articles={latestArticles} />
+                    <RandomArticles articles={randomArticles} />
                 </div>
 
                 {/* Article List */}
                 <div className="lg:col-span-8 flex flex-col gap-8">
+                {articles.length>0?
                     <ArticlesList
-                        articles={filteredArticles}
-                        currentPage={1}
-                        totalPages={5}
+                        articles={articles}
+                        currentPage={currentPage}
+                        totalPages={totalPages}
                     />
+                    :
+                    <NotFoundText/>
+                }
                 </div>
             </div>
         </Container>

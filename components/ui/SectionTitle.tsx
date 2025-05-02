@@ -1,6 +1,6 @@
 type SectionTitleProps = {
     title: string;
-    subtitle: string;
+    subtitle?: string;
     align?: 'center' | 'start' | 'end';
 };
 

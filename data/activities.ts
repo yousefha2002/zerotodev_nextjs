@@ -14,15 +14,8 @@ export default [
         color: "#065F46",      // dark green text
     },
     {
-        emoji: "🔥",
-        title: "تعليق",
-        points: "+2",          // 2 points for تعليق
-        background: "#FECACA", // light red background
-        color: "#B91C1C",      // dark red text
-    },
-    {
         emoji: "📅",
-        title: "زيارة يومية",
+        title: "قراءة سؤال",
         points: "+1",
         background: "#E9D5FF", // light purple background
         color: "#6B21A8",      // dark purple text

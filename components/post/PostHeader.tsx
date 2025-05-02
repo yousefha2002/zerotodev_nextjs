@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaCalendarAlt } from "react-icons/fa";
 import Label from '../ui/Label';
+import { Category } from '@/types/Category';
 
 export default function PostHeader({
     title,
@@ -8,13 +9,13 @@ export default function PostHeader({
     date,
 }: {
     title: string;
-    category?: string;
+    category?: Category;
     date?: string;
 }) {
     return (
         <div className="mb-6">
-            {category&&<Label name={category} slug={category} />}
-            <h1 className="text-xl sm:text-2xl font-bold text-dark my-5">
+            {category&&<Label {...category} />}
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-dark my-5">
                 {title}
             </h1>
             {date&&

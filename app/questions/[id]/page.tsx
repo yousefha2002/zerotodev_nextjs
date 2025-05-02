@@ -1,4 +1,3 @@
-import SingleArticlePage from '@/components/articles/SingleArticlePage'
 import ContentLayout from '@/components/ContentLayout'
 import SingleQuestionPage from '@/components/questions/SingleQuestionPage';
 import React from 'react'
@@ -14,8 +13,6 @@ export default function page() {
             content={<SingleQuestionPage/>}
             comments={comments}
             isAuthenticated={true} 
-            previous={{ title: "Previous Question Title", href: "/questions/previous-question" }}
-            next={{ title: "Next Question Title", href: "/questions/next-question" }}
         />
     )
 }

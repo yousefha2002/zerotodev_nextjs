@@ -3,6 +3,7 @@ import { Tajawal } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/footer";
+import { getUserToken } from "@/lib/auth";
 
 const tajawal = Tajawal({
   subsets: ['arabic'],
@@ -17,15 +18,17 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookie = await getUserToken()
+  const token = cookie?.value
   return (
     <html lang="ar" dir="rtl">
       <body className={`${tajawal.className} flex flex-col min-h-screen`}>
-        <Navbar />
+        <Navbar token={token}/>
         <main className="flex-grow mt-[72px]">
           {children}
         </main>

@@ -1,9 +1,9 @@
+import { ContentList } from "@/types/ContentList";
 import Card from "../ui/Card";
-import { Article } from "@/types/Article";
 import ContentSection from "./ContentSection";
 
 type QuizzesSectionProps = {
-    quizzes: Article[];
+    quizzes: ContentList[];
 };
 
 const QuizzesSection = ({ quizzes }: QuizzesSectionProps) => {

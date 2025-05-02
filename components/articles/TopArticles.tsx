@@ -1,20 +1,16 @@
 import { CiStar } from "react-icons/ci";
-import SidebarCard from "../ui/SidebarCard";
-import SidebarList from "../ui/SidebarList";
-
-type Article = {
-    title: string;
-    slug: string;
-};
+import SidebarCard from "../ui/sidebar/SidebarCard";
+import SidebarList from "../ui/sidebar/SidebarList";
+import { ContentList } from "@/types/ContentList";
 
 type TopArticlesProps = {
-    articles: Article[];
+    articles: ContentList[];
 };
 
 const TopArticles = ({ articles }: TopArticlesProps) => {
     const items = articles.map((article) => ({
         label: article.title,
-        href: `/articles/${article.slug}`,
+        href: `/articles/${article.id}`,
     }));
 
     return (

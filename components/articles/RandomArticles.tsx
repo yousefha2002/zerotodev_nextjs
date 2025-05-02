@@ -1,23 +1,16 @@
 import { LiaRandomSolid } from "react-icons/lia";
-import SidebarCard from "../ui/SidebarCard";
-import SidebarList from "../ui/SidebarList";
-
-type Article = {
-    title: string;
-    excerpt: string;
-    image: string;
-    category: string;
-    slug: string;
-};
+import SidebarCard from "../ui/sidebar/SidebarCard";
+import SidebarList from "../ui/sidebar/SidebarList";
+import { ContentList } from "@/types/ContentList";
 
 type RandomArticlesProps = {
-    articles: Article[];
+    articles: ContentList[];
 };
 
 const RandomArticles = ({ articles }: RandomArticlesProps) => {
     const items = articles.map((a) => ({
         label: a.title,
-        href: `/articles/${a.slug}`,
+        href: `/articles/${a.id}`,
     }));
     return (
         <SidebarCard title="مقالات عشوائية" icon={<LiaRandomSolid size={24} />}>

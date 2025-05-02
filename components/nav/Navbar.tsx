@@ -4,11 +4,12 @@ import Logo from './Logo';
 import DesktopLinks from './DesktopLinks';
 import MobileMenuButton from './MobileMenuButton';
 import MobileMenu from './MobileMenu';
-import LoginButton from './LoginButton';
+import LoginButton from './AuthButton';
 import { projectName } from '@/utils/constants';
 import categories from '@/data/categories';
+import AuthButton from './AuthButton';
 
-export default function Navbar() {
+export default function Navbar({token}:{token?:string}) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -16,10 +17,10 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
                 <Logo brandName={projectName} logoSrc={'/favicon.png'}/>
                 <DesktopLinks navLinks={categories.map(category=>({title:category.title,href:category.href}))} />
-                <LoginButton loginLink="/login" />
+                <AuthButton token={token}/>
                 <MobileMenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
             </div>
-            {isOpen&&<MobileMenu navLinks={categories.map(category=>({title:category.title,href:category.href}))}  loginLink="/login" />}
+            {isOpen&&<MobileMenu token={token} navLinks={categories.map(category=>({title:category.title,href:category.href}))}  loginLink="/login" />}
         </nav>
     );
 }

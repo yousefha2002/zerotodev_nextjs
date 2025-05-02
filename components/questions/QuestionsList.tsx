@@ -1,5 +1,5 @@
 import QuestionCard from "./QuestionCard";
-import Pagination from "../articles/Pagination";
+import Pagination from "../ui/Pagination";
 
 type Question = {
     id: number;

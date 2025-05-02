@@ -13,7 +13,13 @@ const nextConfig: NextConfig = {
         hostname: 'www.globalcareercounsellor.com',
         pathname: '/blog/wp-content/uploads/**',
       },
-    ]
+    ],
+    domains: ['localhost']
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '10mb',
+    },
   }
 };
 

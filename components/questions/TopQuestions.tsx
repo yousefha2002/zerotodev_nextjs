@@ -1,6 +1,6 @@
 import { CiStar } from "react-icons/ci";
-import SidebarCard from "../ui/SidebarCard";
-import SidebarList from "../ui/SidebarList";
+import SidebarCard from "../ui/sidebar/SidebarCard";
+import SidebarList from "../ui/sidebar/SidebarList";
 import questions from "@/data/fake/questions";
 
 const TopQuestions = () => {

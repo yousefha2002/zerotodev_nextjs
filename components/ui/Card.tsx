@@ -13,7 +13,7 @@ const Card = ({ image, title, link }: CardProps) => {
         <Shadow className="bg-white hover:shadow-2xl transition-transform transform hover:scale-105 duration-300">
             <div className="relative">
                 <Image
-                    src={image}
+                    src={`${process.env.ImageUrl}${image}`}
                     alt={title}
                     width={192}
                     height={192}

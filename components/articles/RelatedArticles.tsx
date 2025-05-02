@@ -1,6 +1,6 @@
 import { LiaRandomSolid } from "react-icons/lia";
-import SidebarCard from "../ui/SidebarCard";
-import SidebarList from "../ui/SidebarList";
+import SidebarCard from "../ui/sidebar/SidebarCard";
+import SidebarList from "../ui/sidebar/SidebarList";
 
 type Article = {
     title: string;

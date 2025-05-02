@@ -1,16 +1,9 @@
+import {ArticleList } from "@/types/Article";
 import ArticleCard from "./ArticleCard";
-import Pagination from "./Pagination";
-
-type Article = {
-    title: string;
-    excerpt: string;
-    image: string;
-    category: string;
-    slug: string;
-};
+import Pagination from "../ui/Pagination";
 
 type ArticlesListProps = {
-    articles: Article[];
+    articles: ArticleList[];
     currentPage: number;
     totalPages: number;
 };
@@ -21,12 +14,8 @@ const ArticlesList = ({ articles, currentPage, totalPages }: ArticlesListProps) 
             <div className="space-y-8">
                 {articles.map((article) => (
                     <ArticleCard
-                        key={article.slug}
-                        title={article.title}
-                        excerpt={article.excerpt}
-                        image={article.image}
-                        category={article.category}
-                        slug={article.slug}
+                        key={article.id}
+                        {...article}
                     />
                 ))}
             </div>

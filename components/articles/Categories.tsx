@@ -1,11 +1,7 @@
 import { CiShoppingTag } from "react-icons/ci";
-import SidebarCard from "../ui/SidebarCard";
+import SidebarCard from "../ui/sidebar/SidebarCard";
 import Label from "../ui/Label";
-
-type Category = {
-    name: string;
-    slug: string;
-};
+import { Category } from "@/types/Category";
 
 type CategoriesProps = {
     categories: Category[];
@@ -15,8 +11,8 @@ const Categories = ({ categories }: CategoriesProps) => {
     return (
         <SidebarCard title="التصنيفات المميزة" icon={<CiShoppingTag size={24} />}>
             <ul className="flex flex-wrap gap-2 py-6">
-                {categories.map((category, index) => (
-                    <Label {...category} key={index} />
+                {categories.map((category) => (
+                    <Label {...category} key={category.id} />
                 ))}
             </ul>
         </SidebarCard>
