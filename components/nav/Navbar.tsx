@@ -4,7 +4,6 @@ import Logo from './Logo';
 import DesktopLinks from './DesktopLinks';
 import MobileMenuButton from './MobileMenuButton';
 import MobileMenu from './MobileMenu';
-import LoginButton from './AuthButton';
 import { projectName } from '@/utils/constants';
 import categories from '@/data/categories';
 import AuthButton from './AuthButton';

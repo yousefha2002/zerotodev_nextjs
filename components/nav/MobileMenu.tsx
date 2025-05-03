@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Links from './Links';
+import LogoutButton from './Logout';
 
 type MobileMenuProps = {
     navLinks: { title: string; href: string }[];
@@ -20,12 +21,7 @@ export default function MobileMenu({ navLinks, loginLink, token }: MobileMenuPro
                         >
                             داشبورد
                         </Link>
-                        <Link
-                            href="/logout"
-                            className="bg-primary text-white px-4 py-2 rounded-lg text-center shadow hover:bg-dark"
-                        >
-                            خروج
-                        </Link>
+                        <LogoutButton/>
                     </div>
                 ) : (
                     <Link

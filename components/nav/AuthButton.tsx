@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoutButton from "./Logout";
 
 type AuthButtonProps = {
     token?: string;
@@ -12,12 +13,7 @@ export default function AuthButton({ token }: AuthButtonProps) {
                     <Link href="/dashboard" className="text-primary px-4 py-2 rounded-lg border-primary border-2">
                         داشبورد
                     </Link>
-                    <Link
-                        href="/logout"
-                        className="bg-primary text-white px-4 py-2 rounded-lg shadow"
-                    >
-                        خروج
-                    </Link>
+                    <LogoutButton/>
                 </div>
             ) : (
                 <Link
