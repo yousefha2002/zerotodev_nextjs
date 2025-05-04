@@ -1,10 +1,9 @@
-export default function formatDate(date:string)
-{
-    const formattedDate = new Date(date).toLocaleDateString('en-US', {
-        weekday: 'short', // Example: "Mon"
+export default function formatDate(date: string) {
+    const formattedDate = new Date(date).toLocaleDateString('ar-EG', {
+        weekday: 'short', // مثال: "الاثنين"
         year: 'numeric',
-        month: 'short', // Example: "Mar"
-        day: '2-digit', // Example: "11"
+        month: 'short',   // مثال: "مار"
+        day: '2-digit',   // مثال: "11"
     });
-    return formattedDate
-}
+    return formattedDate;
+}  

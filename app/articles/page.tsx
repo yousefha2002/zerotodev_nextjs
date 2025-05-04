@@ -8,7 +8,6 @@ type Props = {
 };
 
 export default async function page({searchParams}:Props) {
-
     const search = await searchParams
     const page = search.page?+search.page :1
     const categoryId = search.category ? +search.category : undefined;

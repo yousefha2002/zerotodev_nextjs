@@ -1,16 +1,9 @@
 import QuestionCard from "./QuestionCard";
 import Pagination from "../ui/Pagination";
-
-type Question = {
-    id: number;
-    question: string;
-    details: string;
-    views?: number;
-    date?: string;
-};
+import { QuestionList } from "@/types/Question";
 
 type QuestionsListProps = {
-    questions: Question[];
+    questions: QuestionList[];
     currentPage: number;
     totalPages: number;
 };
@@ -22,11 +15,7 @@ const QuestionsList = ({ questions, currentPage, totalPages }: QuestionsListProp
                 {questions.map((q) => (
                     <QuestionCard
                         key={q.id+"id"}
-                        id={q.id}
-                        question={q.question}
-                        detail={q.details}
-                        views={q.views}
-                        date={q.date}
+                        {...q}
                     />
                 ))}
             </div>

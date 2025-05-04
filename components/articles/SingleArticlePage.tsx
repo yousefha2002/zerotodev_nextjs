@@ -14,7 +14,7 @@ export default function SingleArticlePage({article}:{article:Article}) {
                 <PostHeader
                     title={article.title}
                     category={{name:article.category.name,id:article.category.id}}
-                    date={formatDate(article.publish_date)}
+                    date={article.publish_date}
                 />
                 <PostBody
                     description={article.headline}

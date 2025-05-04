@@ -14,7 +14,7 @@ const TopArticles = ({ articles }: TopArticlesProps) => {
     }));
 
     return (
-        <SidebarCard title="أعلى المقالات مشاهدة" icon={<CiStar size={24} />}>
+        <SidebarCard title="أحدث المقالات " icon={<CiStar size={24} />}>
             <SidebarList items={items} />
         </SidebarCard>
     );

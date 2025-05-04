@@ -1,5 +1,6 @@
 import ContentLayout from '@/components/ContentLayout'
 import SingleQuestionPage from '@/components/questions/SingleQuestionPage';
+import { getSingleQuestion } from '@/lib/questions';
 import React from 'react'
 
 const comments = [
@@ -7,10 +8,12 @@ const comments = [
     { id: 2, author: 'سارة', content: 'استفدت كثيرًا شكراً لك.', date: '2025-04-26' },
 ];
 
-export default function page() {
+export default async function page({params}:{params:Promise<{id:string}>}) {
+    const {id} = await params
+    const question = await getSingleQuestion(+id)
     return (
         <ContentLayout
-            content={<SingleQuestionPage/>}
+            content={<SingleQuestionPage question={question}/>}
             comments={comments}
             isAuthenticated={true} 
         />

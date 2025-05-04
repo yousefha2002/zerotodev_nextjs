@@ -1,6 +1,7 @@
 import { Article, ArticleList } from "@/types/Article";
 import { ContentList } from "@/types/ContentList";
 import { apiGet } from "@/utils/api/apitGet";
+import { getUserToken } from "./auth";
 
 export async function getArticles(page = 1, limit = 5, category?: number) {
     const categoryQuery = category ? `&category=${category}` : '';
@@ -18,5 +19,7 @@ export async function getRandomArticles(limit = 5) {
 }
 
 export async function getSingleArticle(id:number) {
-    return apiGet<Article>(`${process.env.API}article/${id}`);
+    const token = await getUserToken()
+    const tokenValue = token ? token.value : undefined;
+    return apiGet<Article>(`${process.env.API}article/${id}`,tokenValue);
 }

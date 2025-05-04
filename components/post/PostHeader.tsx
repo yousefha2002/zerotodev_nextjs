@@ -2,6 +2,7 @@ import React from 'react';
 import { FaCalendarAlt } from "react-icons/fa";
 import Label from '../ui/Label';
 import { Category } from '@/types/Category';
+import formatDate from '@/utils/formatDate';
 
 export default function PostHeader({
     title,
@@ -21,7 +22,7 @@ export default function PostHeader({
             {date&&
             <div className="flex items-center gap-x-2 text-sm sm:text-base text-muted">
                 <FaCalendarAlt />
-                <span>{date}</span>
+                <span>{formatDate(date)}</span>
             </div>}
         </div>
     );
