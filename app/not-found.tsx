@@ -1,18 +1,21 @@
 import Link from "next/link";
+
 export default function NotFound() {
     return (
-        <section className="min-h-screen bg-light flex items-center justify-center p-8">
-            <div className="text-center max-w-md bg-white shadow-lg p-10 rounded-2xl border border-primary">
-                <div className="text-[60px] mb-4 text-primary">🚫</div>
-                <h1 className="text-4xl font-bold text-dark mb-2">الصفحة غير موجودة</h1>
-                <p className="text-muted mb-6">يبدو أنك ضللت الطريق... هذه الصفحة غير متوفرة حاليًا.</p>
-                <Link
-                    href="/"
-                    className="bg-primary text-white px-6 py-2 rounded-xl hover:bg-dark transition duration-300"
-                >
-                    العودة إلى الصفحة الرئيسية
-                </Link>
-            </div>
+        <section className="min-h-screen bg-light flex items-center justify-center px-4 py-12">
+        <div className="border border-primary rounded-2xl shadow-lg p-8 max-w-md w-full text-center">
+            <div className="text-[64px] mb-4">🚫</div>
+            <h1 className="text-3xl font-extrabold text-primary mb-3">الصفحة غير موجودة</h1>
+            <p className="text-muted mb-6">
+            عذرًا، لا يمكننا العثور على الصفحة التي تبحث عنها.
+            </p>
+            <Link
+            href="/"
+            className="inline-block bg-primary hover:bg-dark text-white font-medium px-6 py-2 rounded-full transition"
+            >
+            العودة للرئيسية
+            </Link>
+        </div>
         </section>
     );
 }

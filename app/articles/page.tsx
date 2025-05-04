@@ -17,7 +17,6 @@ export default async function page({searchParams}:Props) {
         getLatestArticles(3),
         getRandomArticles(3)
     ])
-    console.log(rows)
     return (
         <ArticlesPage 
             categories={categories}
