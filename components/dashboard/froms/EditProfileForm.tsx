@@ -22,7 +22,7 @@ export default function EditProfileForm({user}:{user:User}) {
                 defaultValue={user.name || state?.data.name || ""}
             />
             <TextareaField
-                required
+                required={false}
                 name="bio"
                 placeholder="نبذة"
                 icon={FaAlignLeft}

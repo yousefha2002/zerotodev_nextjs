@@ -3,9 +3,11 @@ import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import PointItem from "@/components/dashboard/PointItem";
 import TotalPoints from "@/components/dashboard/TotalPoints";
-import points from "@/data/fake/points";
+import { getUserPoints } from "@/lib/user.point";
+import NotFoundText from "@/components/ui/NotFoundText";
 
-const Page = () => {
+export default async function page() {
+    const points = await getUserPoints()
     return (
         <Container className="py-10">
             <SectionTitle
@@ -14,20 +16,17 @@ const Page = () => {
             />
 
             <div className="space-y-6">
-                {points.map((point) => (
-                <PointItem
-                    key={point.id}
-                    title={point.title}
-                    points={point.points}
-                    date={point.date}
-                    description={point.description}
-                />
-                ))}
+                {points.length === 0 ?(
+                    <NotFoundText />
+                ) : (
+                    <div className="space-y-6">
+                        {points.map((point) => <PointItem key={point.id} point={point} />)}
+                    </div>
+                )}
             </div>
 
-            <TotalPoints totalPoints={20} />
+            <TotalPoints totalPoints={points.reduce((prev, current) => prev + current.points, 0)} />
         </Container>
     );
-};
+}
 
-export default Page;
