@@ -10,8 +10,6 @@ export default function LoginPage() {
                 <SectionTitle title='تسجيل الدخول'/>
 
                 <LoginForm/>
-
-                {/* Register Message */}
                 <p className="text-center text-sm text-muted mt-4">
                     ليس لديك حساب ؟{' '}
                     <Link

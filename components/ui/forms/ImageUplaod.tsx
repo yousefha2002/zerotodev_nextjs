@@ -1,14 +1,16 @@
 'use client';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { FaCamera } from 'react-icons/fa';
 
 type Props = {
     name: string;
     required?: boolean;
-    reset?:boolean
+    reset?: boolean;
+    defaultValue?: string;
 };
 
-export default function ImageUpload({ name, required = false ,reset}: Props) {
+export default function ImageUpload({ name, required = false, reset, defaultValue }: Props) {
     const [preview, setPreview] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,6 +19,12 @@ export default function ImageUpload({ name, required = false ,reset}: Props) {
             setPreview(URL.createObjectURL(file));
         }
     };
+
+    useEffect(() => {
+        if (defaultValue) {
+            setPreview(`${process.env.NEXT_PUBLIC_IMAGE_URL}${defaultValue}`);
+        }
+    }, [defaultValue]);
 
     useEffect(() => {
         if (reset) {
@@ -30,15 +38,17 @@ export default function ImageUpload({ name, required = false ,reset}: Props) {
                 <div className="relative group">
                     <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 bg-gray-100 shadow-sm">
                         {preview ? (
-                        <img
-                            src={preview}
-                            alt="Preview"
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
+                            <Image
+                                src={preview}
+                                width={80}
+                                height={80}
+                                alt="Preview"
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
                         ) : (
-                        <div className="flex items-center justify-center h-full text-gray-400">
-                            <FaCamera className="text-2xl" />
-                        </div>
+                            <div className="flex items-center justify-center h-full text-gray-400">
+                                <FaCamera className="text-2xl" />
+                            </div>
                         )}
                     </div>
 

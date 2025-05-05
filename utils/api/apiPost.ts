@@ -3,7 +3,7 @@ interface ApiResponse<T> {
     message: string | string[];
 }
 
-type Method = "POST" | "PATCH"|"DELETE";
+type Method = "POST" | "PATCH"|"DELETE"|'PUT';
 
 export async function apiPost<T>(
     url: string,
