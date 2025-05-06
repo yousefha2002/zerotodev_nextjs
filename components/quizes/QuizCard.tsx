@@ -1,28 +1,21 @@
+import { QuizSummary } from "@/types/Quiz";
 import Link from "next/link";
-import { FaQuestionCircle } from "react-icons/fa"; // Importing React icons
+import { FaQuestionCircle } from "react-icons/fa";
 
-type Quiz = {
-    id: number;
-    title: string;
-    description: string;
-    numberOfQuestions: number;
-    slug: string;
-};
-
-const QuizCard = ({ title, description, numberOfQuestions, slug }: Quiz) => {
+const QuizCard = ({ title, id, headline,questionCount }: QuizSummary) => {
     return (
-        <Link href={`/quizzes/${slug}`}>
+        <Link href={`/quizzes/${id}`}>
             <div className="block bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 cursor-pointer relative max-w-sm mx-auto overflow-hidden">
                 <h3 className="text-xl font-bold text-dark mb-3">
                     {title}
                 </h3>
                 <p className="text-muted text-sm leading-relaxed mb-5 line-clamp-3">
-                    {description}
+                    {headline}
                 </p>
                 <div className="flex justify-between items-center mb-4 text-sm text-muted">
                     <div className="flex items-center gap-x-2">
                         <FaQuestionCircle className=" text-primary" />
-                        <span>{numberOfQuestions} أسئلة</span>
+                        <span>{questionCount} أسئلة</span>
                     </div>
                 </div>
                 {/* Hover Effect Overlay */}

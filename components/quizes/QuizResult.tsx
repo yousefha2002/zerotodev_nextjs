@@ -1,12 +1,4 @@
-export default function QuizResult({
-    score,
-    total,
-    percentage,
-}: {
-    score: number;
-    total: number;
-    percentage: number;
-}) {
+export default function QuizResult({score,total,percentage,}: {score: number;total: number;percentage: number}) {
     let resultMessage;
     const scorePercentage = score / total;
 

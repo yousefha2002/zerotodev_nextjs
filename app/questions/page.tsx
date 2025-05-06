@@ -6,7 +6,7 @@ import SectionTitle from '@/components/ui/SectionTitle'
 import questions from '@/data/fake/questions'
 import { getLatestQuestions, getQuestions, getRandomQuestions } from '@/lib/questions'
 import React from 'react'
-import NotFound from '../not-found'
+import NotFoundText from '@/components/ui/NotFoundText'
 
 type Props = {
     searchParams: Promise<{ page?: string; category?: string }>;
@@ -43,7 +43,7 @@ export default async function page({searchParams}:Props) {
                             totalPages={rows.totalPages}
                         />
                         :
-                        <NotFound/>
+                        <NotFoundText/>
                     }
                 </div>
             </div>

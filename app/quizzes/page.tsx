@@ -1,9 +1,17 @@
-import QuizCard from "@/components/quizes/QuizCard";
+import QuizList from "@/components/quizes/QuizList";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
-import quizes from "@/data/fake/quizes";
+import { getQuizes } from "@/lib/quiz";
+import NotFoundText from "@/components/ui/NotFoundText";
 
-export default function QuizzesPage() {
+type Props = {
+    searchParams: Promise<{ page?: string; category?: string }>;
+};
+
+export default async function page({searchParams}:Props) {
+    const search = await searchParams
+    const page = search.page?+search.page :1
+    const {totalPages,quizes} = await getQuizes(page,12)
     return (
         <Container className="py-12">
             <SectionTitle
@@ -11,11 +19,12 @@ export default function QuizzesPage() {
                 subtitle="اكتشف مجموعة من التحديات البرمجية لاختبار مهاراتك في مختلف المجالات."
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-8">
-                {quizes.map((quiz) => (
-                    <QuizCard key={quiz.id} {...quiz} />
-                ))}
-            </div>
+            {
+                quizes.length>0?
+                <QuizList quizes={quizes} currentPage={page} totalPages={totalPages}/>
+                :
+                <NotFoundText/>
+            }
         </Container>
     );
 }

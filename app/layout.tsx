@@ -25,7 +25,6 @@ export default async function RootLayout({
 }>) {
   const cookie = await getUserToken()
   const token = cookie?.value
-  console.log(token)
   return (
     <html lang="ar" dir="rtl">
       <body className={`${tajawal.className} flex flex-col min-h-screen`}>
