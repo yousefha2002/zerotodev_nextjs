@@ -2,11 +2,12 @@ import Container from '@/components/ui/Container';
 import Link from 'next/link';
 import SectionTitle from '@/components/ui/SectionTitle';
 import LoginForm from '@/components/user-auth/LoginForm';
+import Shadow from '@/components/ui/Shadow';
 
 export default function LoginPage() {
     return (
         <Container className="py-10">
-            <div className="bg-white p-8">
+            <Shadow className="bg-white p-8">
                 <SectionTitle title='تسجيل الدخول'/>
 
                 <LoginForm/>
@@ -19,7 +20,7 @@ export default function LoginPage() {
                         انشاء حساب
                     </Link>
                 </p>
-            </div>
+            </Shadow>
         </Container>
     );
 }
