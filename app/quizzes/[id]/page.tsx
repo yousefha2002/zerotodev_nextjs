@@ -10,7 +10,6 @@ export default async function page({params}:{params:Promise<{id:string}>}) {
     const {quiz,marks,hasSubmitted} = await getViewQuiz(+id)
     const percentage = (marks / quiz.questionCount) * 100;
 
-
     return (
         <Container className="py-10">
             <Shadow className="bg-white text-center py-8 rounded-lg shadow-lg">

@@ -20,7 +20,7 @@ export async function UpdateProfile(prev: any, formData: FormData): Promise<Form
         data.append("image", image);
     }
 
-    const response = await apiPost<{ token: string; user: any}>(
+    const response = await apiPost(
         `${process.env.API}user/update`,
         "PUT",
         data,
