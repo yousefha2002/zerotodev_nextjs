@@ -5,7 +5,6 @@ import ContributionSection from "@/components/home/ContributionSection";
 import HeroSection from "@/components/home/HeroSection";
 import QuestionsSection from "@/components/home/QuestionsSection";
 import QuizzesSection from "@/components/home/QuizzesSection";
-import questions from "@/data/fake/questions";
 import { getLatestArticles } from "@/lib/articles";
 
 export default async function page() {
@@ -15,8 +14,8 @@ export default async function page() {
             <HeroSection/>
             <CategoriesGrid/>
             <ArticlesSection articles={articles} />
-            <QuizzesSection quizzes={articles} />
-            <QuestionsSection questions={questions}/>
+            {/* <QuizzesSection quizzes={articles} />
+            <QuestionsSection questions={questions}/> */}
             <ActivityPointsSection/>
             <ContributionSection/>
         </section>
