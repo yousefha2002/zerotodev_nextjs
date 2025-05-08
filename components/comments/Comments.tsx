@@ -1,19 +1,15 @@
 import React from 'react';
-import Comment from './Comment'; 
 import Shadow from '../ui/Shadow';
-
-type CommentType = {
-    id: number;
-    author: string;
-    content: string;
-    date: string;
-};
+import { Comment } from '@/types/Comment';
+import CommentBox from './CommentBox';
 
 type CommentsSectionProps = {
-    comments: CommentType[];
+    comments: Comment[];
+    onDeleteComment?: (id: number) => void;
+    currentUserId?:number
 };
 
-export default function Comments({ comments }: CommentsSectionProps) {
+export default function Comments({ comments ,onDeleteComment,currentUserId}: CommentsSectionProps) {
     return (
         <Shadow className="mt-12 bg-white flex flex-col gap-8">
             <div className="flex flex-col gap-4">
@@ -24,11 +20,11 @@ export default function Comments({ comments }: CommentsSectionProps) {
                 {comments.length > 0 ? (
                     <div className="flex flex-col gap-6">
                         {comments.map((comment) => (
-                            <Comment
+                            <CommentBox
                                 key={comment.id}
-                                author={comment.author}
-                                content={comment.content}
-                                date={comment.date}
+                                comment={comment}
+                                onDelete={onDeleteComment}
+                                currentUserId={currentUserId}
                             />
                         ))}
                     </div>
