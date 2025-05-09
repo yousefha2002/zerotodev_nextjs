@@ -2,9 +2,11 @@ import React from "react";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import CommentItem from "@/components/dashboard/CommentItem";
-import comments from "@/data/fake/comments";
+import { getUserComments } from "@/lib/comment";
+import NotFoundText from "@/components/ui/NotFoundText";
 
-export default function Page() {
+export default async function Page() {
+    const comments = await getUserComments()
     return (
         <Container className="py-10">
             <SectionTitle
@@ -12,17 +14,20 @@ export default function Page() {
                 subtitle="هنا يمكنك مشاهدة جميع التعليقات التي قمت بإضافتها على المقالات أو التحديات."
             />
 
+            {
+            comments.length>0
+            ?
             <div className="space-y-6 mt-8">
                 {comments.map((comment) => (
                 <CommentItem
                     key={comment.id}
-                    content={comment.content}
-                    type={comment.type}
-                    relatedTitle={comment.relatedTitle}
-                    date={comment.date}
+                    comment={comment}
                 />
                 ))}
             </div>
+            :
+            <NotFoundText/>
+            }
         </Container>
     );
 }

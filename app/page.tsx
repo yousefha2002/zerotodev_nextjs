@@ -4,18 +4,20 @@ import CategoriesGrid from "@/components/home/CategoriesGrid";
 import ContributionSection from "@/components/home/ContributionSection";
 import HeroSection from "@/components/home/HeroSection";
 import QuestionsSection from "@/components/home/QuestionsSection";
-import QuizzesSection from "@/components/home/QuizzesSection";
 import { getLatestArticles } from "@/lib/articles";
+import { getLatestQuestions } from "@/lib/questions";
 
 export default async function page() {
-    const articles = await getLatestArticles(3)
+    const [articles,questions] = await Promise.all([
+        getLatestArticles(3),
+        getLatestQuestions(5)
+    ])
     return (
         <section>
             <HeroSection/>
             <CategoriesGrid/>
             <ArticlesSection articles={articles} />
-            {/* <QuizzesSection quizzes={articles} />
-            <QuestionsSection questions={questions}/> */}
+            <QuestionsSection questions={questions}/>
             <ActivityPointsSection/>
             <ContributionSection/>
         </section>

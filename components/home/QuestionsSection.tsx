@@ -1,17 +1,9 @@
+import { ContentList } from "@/types/ContentList";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import QuestionCard from "./QuestionCard";
 
-type Question = {
-    id: number;
-    question: string;
-};
-
-type QuestionsSectionProps = {
-    questions: Question[];
-};
-
-const QuestionsSection = ({ questions}: QuestionsSectionProps) => {
+const QuestionsSection = ({ questions}: {questions:ContentList[]}) => {
     return (
         <section className="py-20 bg-gray-50">
         <Container>
@@ -23,7 +15,7 @@ const QuestionsSection = ({ questions}: QuestionsSectionProps) => {
 
             <div className="space-y-4">
                 {questions.map((q) => (
-                    <QuestionCard key={q.id} id={q.id} question={q.question} />
+                    <QuestionCard key={q.id} id={q.id} title={q.title} />
                 ))}
             </div>
         </Container>

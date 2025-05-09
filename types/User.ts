@@ -5,3 +5,10 @@ export type User = {
     image:string
     email:string
 }
+
+export type TopUser={
+    id:number,
+    name:string,
+    image:string,
+    points:number
+}
