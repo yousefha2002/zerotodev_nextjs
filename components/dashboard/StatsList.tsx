@@ -1,28 +1,29 @@
 import React from 'react';
 import StatCard from './StatCard';
+import { UserStats } from '@/types/User';
 
-export default function StatsList() {
-    const stats = [
+export default function StatsList({stats}:{stats:UserStats}) {
+    const statstics = [
         {
             label: 'النقاط',
-            value: 5,
+            value: stats.points,
             icon: '📘',
         },
         {
             label: 'التعليقات',
-            value: 7,
+            value: stats.commentsCount,
             icon: '✅',
         },
         {
             label: 'المقالات',
-            value: 12,
+            value: stats.articleViewsCount,
             icon: '📅',
         },
     ];
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-            {stats.map((stat, idx) => <StatCard {...stat} key={idx}/>)}
+            {statstics.map((stat, idx) => <StatCard {...stat} key={idx}/>)}
         </div>
     );
 }

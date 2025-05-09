@@ -12,3 +12,9 @@ export type TopUser={
     image:string,
     points:number
 }
+
+export type UserStats = {
+    points: number,
+    commentsCount: number,
+    articleViewsCount: number
+}
