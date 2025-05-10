@@ -1,9 +1,11 @@
 import PerformerCard from '@/components/performer/PerformerCard';
 import Container from '@/components/ui/Container'
+import NotFoundText from '@/components/ui/NotFoundText';
 import SectionTitle from '@/components/ui/SectionTitle'
-import { users } from '@/data/fake/users';
+import { getTopUsers } from '@/lib/user';
 
-export default function page() {
+export default async function page() {
+    const users = await getTopUsers()
     return (
         <Container className="py-12">
             <SectionTitle
@@ -11,11 +13,17 @@ export default function page() {
                 subtitle="اكتشف المتصدرين في التحديات والاختبارات."
             />
 
-            <div className="space-y-6 max-w-xl mx-auto">
-                {users.map((p) => (
-                    <PerformerCard key={p.id} name={p.name} points={p.points} image={p.image} />
-                ))}
-            </div>
+            {
+                users.length>0
+                ?
+                <div className="space-y-6 max-w-xl mx-auto">
+                    {users.map((user) => (
+                        <PerformerCard key={user.id} user={user} />
+                    ))}
+                </div>
+                :
+                <NotFoundText/>
+            }
         </Container>
     )
 }

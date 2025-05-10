@@ -2,7 +2,6 @@ import React from 'react'
 import Shadow from '../ui/Shadow'
 import PostHeader from '../post/PostHeader'
 import PostBody from '../post/PostBody'
-import fakeQuestion from '@/data/fake/fakeQuestion'
 import { Question } from '@/types/Question'
 
 export default function SingleQuestionPage({question}:{question:Question}) {
@@ -14,7 +13,7 @@ export default function SingleQuestionPage({question}:{question:Question}) {
             />
             <PostBody
                 description={question.headline}
-                content={fakeQuestion.content}
+                content={question.content}
             />
         </Shadow>
     )

@@ -2,15 +2,18 @@ import Actions from '@/components/dashboard/Actions'
 import StatsList from '@/components/dashboard/StatsList'
 import UserCard from '@/components/dashboard/UserCard'
 import Container from '@/components/ui/Container'
-import { getCurrentUser } from '@/lib/user'
+import { getCurrentUser, getUserStats } from '@/lib/user'
 import React from 'react'
 
 export default async function page() {
-    const user = await getCurrentUser()
+    const [user,stats] = await Promise.all([
+        getCurrentUser(),
+        getUserStats()
+    ])
     return (
         <Container className='py-10'>
             <Actions/>
-            <StatsList/>
+            <StatsList stats={stats}/>
             <UserCard user={user}/>
         </Container>
     )

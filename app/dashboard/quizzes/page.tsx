@@ -1,10 +1,12 @@
 import React from "react";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
-import quizesList from "@/data/fake/quizesList";
 import QuizItem from "@/components/dashboard/QuizItme";
+import { getUserQuizes } from "@/lib/user-quiz";
+import NotFoundText from "@/components/ui/NotFoundText";
 
-export default function Page() {
+export default async function Page() {
+    const quizes = await getUserQuizes()
     return (
         <Container className="py-10">
             <SectionTitle
@@ -12,16 +14,22 @@ export default function Page() {
                 subtitle="هنا يمكنك مشاهدة جميع الكويزات التي قمت بها مع الدرجات."
             />
 
+            {
+            quizes.length>0
+            ?
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                {quizesList.map((quiz) => (
+                {quizes.map((quiz) => (
                     <QuizItem
-                        key={quiz.id}
-                        title={quiz.title}
-                        score={quiz.score}
+                        key={quiz.quiz.id+'z'}
+                        title={quiz.quiz.title}
+                        score={quiz.mark}
                         total={quiz.total}
                     />
                 ))}
             </div>
+            :
+            <NotFoundText/>
+            }
         </Container>
     );
 }

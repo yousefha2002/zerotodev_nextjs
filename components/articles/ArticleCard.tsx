@@ -12,7 +12,7 @@ const ArticleCard = ({ id, title, image, category, headline,publish_date,views }
             <Image
                 width={300}
                 height={200}
-                src={`${process.env.ImageUrl}${image}`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${image}`}
                 alt={title}
                 className="w-full h-48 object-cover rounded-lg mb-6"
             />

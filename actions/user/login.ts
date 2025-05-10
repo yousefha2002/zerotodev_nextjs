@@ -22,7 +22,7 @@ export async function login(prev: any, formData: FormData): Promise<FormResponse
     if (response.data?.token) 
     {
         clearAuth()
-        await setUserAuth(response.data?.token)
+        await setUserAuth(response.data?.token,response.data.user.id)
     }
 
     revalidatePath("/", "layout");

@@ -3,7 +3,6 @@ import RandomQuestions from '@/components/questions/RandomQuestions'
 import TopQuestions from '@/components/questions/TopQuestions'
 import Container from '@/components/ui/Container'
 import SectionTitle from '@/components/ui/SectionTitle'
-import questions from '@/data/fake/questions'
 import { getLatestQuestions, getQuestions, getRandomQuestions } from '@/lib/questions'
 import React from 'react'
 import NotFoundText from '@/components/ui/NotFoundText'
@@ -33,10 +32,10 @@ export default async function page({searchParams}:Props) {
                     <RandomQuestions questions={randomQuestions}/>
                 </div>
 
-                {/* Article List */}
+                {/* Question List */}
                 <div className="lg:col-span-8 flex flex-col gap-8">
                     {
-                        questions.length>0?
+                        rows.questions.length>0?
                         <QuestionsList 
                             questions={rows.questions}
                             currentPage={page}
