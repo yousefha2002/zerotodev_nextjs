@@ -24,7 +24,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center gap-2">
                     <h3 className="font-semibold text-lg">تواصل معنا</h3>
                     <a href="mailto:contact@zerotodev.com" className="text-sm hover:underline">
-                        zerotodev2025@gmail.com
+                        zerotodev2026@gmail.com
                     </a>
                 </div>
 

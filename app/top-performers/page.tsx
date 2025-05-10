@@ -3,6 +3,13 @@ import Container from '@/components/ui/Container'
 import NotFoundText from '@/components/ui/NotFoundText';
 import SectionTitle from '@/components/ui/SectionTitle'
 import { getTopUsers } from '@/lib/user';
+import { Metadata } from 'next'
+import { projectName } from '@/utils/constants'
+
+export const metadata: Metadata = {
+    title: `المتصدرين | ${projectName}`,
+    description: 'اكتشف أفضل المتصدرين في التحديات والاختبارات البرمجية، وتابع أداءهم في مختلف المجالات التقنية.',
+};
 
 export default async function page() {
     const users = await getTopUsers()
@@ -14,7 +21,7 @@ export default async function page() {
             />
 
             {
-                users.length>0
+                users.length > 0
                 ?
                 <div className="space-y-6 max-w-xl mx-auto">
                     {users.map((user) => (
@@ -22,7 +29,7 @@ export default async function page() {
                     ))}
                 </div>
                 :
-                <NotFoundText/>
+                <NotFoundText />
             }
         </Container>
     )

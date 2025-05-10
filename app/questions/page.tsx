@@ -4,21 +4,30 @@ import TopQuestions from '@/components/questions/TopQuestions'
 import Container from '@/components/ui/Container'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { getLatestQuestions, getQuestions, getRandomQuestions } from '@/lib/questions'
-import React from 'react'
 import NotFoundText from '@/components/ui/NotFoundText'
+import { Metadata } from 'next'
+import { projectName } from '@/utils/constants'
+import React from 'react'
 
 type Props = {
     searchParams: Promise<{ page?: string; category?: string }>;
 };
 
-export default async function page({searchParams}:Props) {
-    const search = await searchParams
-    const page = search.page?+search.page :1
-    const [rows,latestQuestions,randomQuestions] = await Promise.all([
+export const metadata: Metadata = {
+    title: `الأسئلة | ${projectName}`,
+    description: "استعرض أكثر الأسئلة شيوعاً في مجال البرمجة، وتعلم من إجاباتها المقدمة من المبرمجين والمجتمع التقني.",
+};
+
+export default async function page({searchParams}: Props) {
+    const search = await searchParams;
+    const page = search.page ? +search.page : 1;
+
+    const [rows, latestQuestions, randomQuestions] = await Promise.all([
         getQuestions(page, 5),
         getLatestQuestions(3),
-        getRandomQuestions(3)
-    ])
+        getRandomQuestions(3),
+    ]);
+
     return (
         <Container className='py-12'>
             <SectionTitle
@@ -28,24 +37,23 @@ export default async function page({searchParams}:Props) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 {/* Sidebar */}
                 <div className="lg:col-span-4 flex flex-col gap-8">
-                    <TopQuestions questions={latestQuestions}/>
-                    <RandomQuestions questions={randomQuestions}/>
+                    <TopQuestions questions={latestQuestions} />
+                    <RandomQuestions questions={randomQuestions} />
                 </div>
 
                 {/* Question List */}
                 <div className="lg:col-span-8 flex flex-col gap-8">
-                    {
-                        rows.questions.length>0?
-                        <QuestionsList 
+                    {rows.questions.length > 0 ? (
+                        <QuestionsList
                             questions={rows.questions}
                             currentPage={page}
                             totalPages={rows.totalPages}
                         />
-                        :
-                        <NotFoundText/>
-                    }
+                    ) : (
+                        <NotFoundText />
+                    )}
                 </div>
             </div>
         </Container>
-    )
+    );
 }
