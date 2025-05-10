@@ -23,5 +23,5 @@ export default async function middleware(req: NextRequest) {
     }
 
     // Continue the request if the user is authenticated or if the route is not protected
-    return NextResponse.next();
+    return NextResponse.next(); 
 }
