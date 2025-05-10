@@ -18,7 +18,7 @@ const ArticleCard = ({ id, title, image, category, headline,publish_date,views }
             />
 
             <Link href={`/articles/${id}`} passHref>
-                <h3 className="text-2xl font-bold text-dark mb-3 cursor-pointer hover:text-primary transition duration-300 ease-in-out">
+                <h3 className="text-2xl font-bold text-dark mb-3 cursor-pointer hover:text-primary transition duration-300 ease-in-out line-clamp-1">
                     {title}
                 </h3>
             </Link>

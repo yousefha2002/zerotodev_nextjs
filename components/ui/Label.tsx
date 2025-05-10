@@ -3,7 +3,6 @@ import React from 'react';
 
 export default function Label({ name, id }: { name: string; id: number }) {
     return (
-        <li>
             <Link
                 href={{
                     pathname: '/articles',
@@ -13,6 +12,5 @@ export default function Label({ name, id }: { name: string; id: number }) {
             >
                 {name}
             </Link>
-        </li>
     );
 }

@@ -6,7 +6,7 @@ const QuizCard = ({ title, id, headline,questionCount }: QuizSummary) => {
     return (
         <Link href={`/quizzes/${id}`}>
             <div className="block bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 cursor-pointer relative max-w-sm mx-auto overflow-hidden">
-                <h3 className="text-xl font-bold text-dark mb-3">
+                <h3 className="text-xl font-bold text-dark mb-3 line-clamp-1">
                     {title}
                 </h3>
                 <p className="text-muted text-sm leading-relaxed mb-5 line-clamp-3">
