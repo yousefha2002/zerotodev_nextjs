@@ -1,14 +1,19 @@
-import { getUserId } from '@/actions/user/get-userId';
 import ContentLayout from '@/components/ContentLayout'
 import SingleQuestionPage from '@/components/questions/SingleQuestionPage';
 import { getUserAuth, getUserToken } from '@/lib/auth';
 import { getSingleQuestion } from '@/lib/questions';
+import { projectName } from '@/utils/constants';
+import { Metadata } from 'next';
 import React from 'react'
 
-const comments = [
-    { id: 1, author: 'أحمد', content: 'مقال رائع جداً!', date: '2025-04-27' },
-    { id: 2, author: 'سارة', content: 'استفدت كثيرًا شكراً لك.', date: '2025-04-26' },
-];
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const {id} = await params
+    const question = await getSingleQuestion(+id);
+    return {
+        title: `${question.title} | ${projectName}`,
+        description: question.headline,
+    };
+}
 
 export default async function page({params}:{params:Promise<{id:string}>}) {
     const currentUserAuth = await getUserAuth();

@@ -6,8 +6,9 @@ import { projectName } from '@/utils/constants';
 import { Metadata } from 'next';
 import React from 'react'
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-    const article = await getSingleArticle(+params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const {id} = await params
+    const article = await getSingleArticle(+id);
 
     return {
         title: `${article.title} | ${projectName}`,

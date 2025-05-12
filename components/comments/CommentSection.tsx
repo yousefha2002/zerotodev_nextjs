@@ -40,7 +40,7 @@ export default function CommentSection({isAuthenticated,onAddComment,articleId,q
                         rows={4}
                         name="comment"
                         placeholder="اكتب تعليقاً هنا ..."
-                        defaultValue=""
+                        defaultValue={state?.data.comment || ""}
                     />
                     {articleId && (
                         <input type="hidden" name="articleId" value={articleId} />

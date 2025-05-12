@@ -13,7 +13,7 @@ export default function CategoriesGrid() {
                     align="center"
                 />
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-10">
-                {categories.map((category) => (
+                {categories.slice(0,3).map((category) => (
                     <CategoryCard
                         key={category.title}
                         {...category}
