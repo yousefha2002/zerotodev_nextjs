@@ -2,6 +2,7 @@ import { ContentList } from "@/types/ContentList";
 import { Question, QuestionList } from "@/types/Question";
 import { apiGet } from "@/utils/api/apitGet";
 import { getUserToken } from "./auth";
+import { apiGetOrNull } from "@/utils/api/apiGetoOrNull";
 
 export async function getQuestions(page = 1, limit = 5) {
     return apiGet<{ questions: QuestionList[]; totalPages: number }>(
@@ -20,5 +21,5 @@ export async function getRandomQuestions(limit = 5) {
 export async function getSingleQuestion(id:number) {
     const token = await getUserToken()
     const tokenValue = token ? token.value : undefined;
-    return apiGet<Question>(`${process.env.API}question/${id}`,tokenValue);
+    return apiGetOrNull<Question>(`${process.env.API}question/${id}`,tokenValue);
 }

@@ -5,18 +5,22 @@ import QuizStart from "@/components/quizes/QuizStart";
 import { getViewQuiz } from "@/lib/quiz";
 import { projectName } from "@/utils/constants";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const {id} = await params
     const quiz = await getViewQuiz(+id);
     return {
-        title: `${quiz.quiz.title} | ${projectName}`,
-        description: quiz.quiz.headline,
+        title: `${quiz?.quiz.title} | ${projectName}`,
+        description: quiz?.quiz.headline,
 }}
 
 export default async function page({params}:{params:Promise<{id:string}>}) {
     const {id} = await params 
-    const {quiz,marks,hasSubmitted} = await getViewQuiz(+id)
+    const rows = await getViewQuiz(+id)
+    if(!rows){notFound()}
+
+    const {quiz,marks,hasSubmitted} = rows
     const percentage = (marks / quiz.questionCount) * 100;
 
     return (

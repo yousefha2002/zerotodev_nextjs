@@ -4,6 +4,7 @@ import { getSingleArticle } from '@/lib/articles';
 import { getUserToken } from '@/lib/auth';
 import { projectName } from '@/utils/constants';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import React from 'react'
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
@@ -11,8 +12,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     const article = await getSingleArticle(+id);
 
     return {
-        title: `${article.title} | ${projectName}`,
-        description: article.headline,
+        title: `${article?.title} | ${projectName}`,
+        description: article?.headline,
     };
 }
 
@@ -21,6 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     const article = await getSingleArticle(+id);
     const token = await getUserToken();
     const isAuthenticated = !!token;
+
+    if(!article) notFound()
 
     return (
         <ContentLayout

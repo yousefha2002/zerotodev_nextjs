@@ -5,19 +5,21 @@ import Shadow from '@/components/ui/Shadow'
 import { getQuizWithQuestions, getViewQuiz } from '@/lib/quiz'
 import { projectName } from '@/utils/constants'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import React from 'react'
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const {id} = await params
     const quiz = await getViewQuiz(+id);
     return {
-        title: `${quiz.quiz.title} | ${projectName}`,
-        description: quiz.quiz.headline,
+        title: `${quiz?.quiz.title} | ${projectName}`,
+        description: quiz?.quiz.headline,
 }}
 
 export default async function page({params}:{params:Promise<{id:string}>}) {
     const {id} = await params
     const quiz = await getQuizWithQuestions(+id)
+    if(!quiz){notFound()}
 
     return (
         <Container className="my-8">
