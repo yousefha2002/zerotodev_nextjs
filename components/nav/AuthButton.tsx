@@ -11,7 +11,7 @@ export default function AuthButton({ token }: AuthButtonProps) {
             {token ? (
                 <div className="flex gap-x-2">
                     <Link href="/dashboard" className="text-primary px-4 py-2 rounded-lg border-primary border-2">
-                        داشبورد
+                        لوحة تحكم
                     </Link>
                     <LogoutButton/>
                 </div>

@@ -1,5 +1,3 @@
-import { Comment } from "./Comment";
-
 export type QuestionList = {
     id: number;
     title: string;
@@ -10,5 +8,5 @@ export type QuestionList = {
 
 export type Question = QuestionList & {
     content: string;
-    comments: Comment[]; 
+    commentCount: number; 
 };

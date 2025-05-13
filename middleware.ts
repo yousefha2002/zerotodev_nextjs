@@ -16,10 +16,10 @@ export default async function middleware(req: NextRequest) {
     // 3. Get the user auth token
     const user_token = await getUserToken();
 
-    // 4. Handle protected routes
+    // 4. Handle protected routes and quizzes
     if (isProtectedRoute && !user_token) {
         // Redirect to login page if user token is not found
-        return NextResponse.redirect(new URL('/', req.nextUrl));
+        return NextResponse.redirect(new URL('/login', req.nextUrl)); // Redirect to login page
     }
 
     // Continue the request if the user is authenticated or if the route is not protected

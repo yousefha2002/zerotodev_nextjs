@@ -8,6 +8,15 @@ import ErrorMessage from '../ui/forms/ErrorMesage';
 
 export default function LoginForm() {
     const [state, action, isPending] = useActionState(login, null)
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null;  // Prevent rendering until the component is on the client side
+    }
 
     return (
         <form className="space-y-4" action={action}>

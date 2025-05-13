@@ -11,7 +11,7 @@ type CommentsSectionProps = {
 
 export default function Comments({ comments ,onDeleteComment,currentUserId}: CommentsSectionProps) {
     return (
-        <Shadow className="mt-12 bg-white flex flex-col gap-8">
+        <Shadow className="bg-white flex flex-col gap-8">
             <div className="flex flex-col gap-4">
                 <h3 className="text-lg font-semibold bg-primary text-white p-4">
                     {comments.length} {comments.length === 1 ? "تعليق" : "تعليقات"}

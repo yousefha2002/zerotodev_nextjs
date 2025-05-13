@@ -1,5 +1,4 @@
 import { Category } from "./Category";
-import { Comment } from "./Comment";
 
 export type ArticleList = {
     id: number;
@@ -13,5 +12,5 @@ export type ArticleList = {
 
 export type Article = ArticleList & {
     content: string;
-    comments: Comment[]; 
+    commentCount:number; 
 };

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useActionState, useState } from 'react'
+import React, { useActionState, useEffect, useState } from 'react'
 import InputField from '../ui/forms/InputField'
 import ImageUpload from '../ui/forms/ImageUplaod'
 import SubmitButton from '../ui/forms/SubmitButton'
@@ -17,6 +17,16 @@ export default function RegisterForm() {
         setResetImage(true); // Trigger reset of the image
         setTimeout(() => setResetImage(false), 0); // Reset the resetImage state to allow future resets
     };
+
+    const [isClient, setIsClient] = useState(false);
+    
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null;  // Prevent rendering until the component is on the client side
+    }
 
 
     return (

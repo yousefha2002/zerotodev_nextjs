@@ -19,7 +19,7 @@ export default function MobileMenu({ navLinks, loginLink, token }: MobileMenuPro
                             href="/dashboard"
                             className="bg-primary text-white px-4 py-2 rounded-lg text-center shadow hover:bg-dark"
                         >
-                            داشبورد
+                            لوحة تحكم
                         </Link>
                         <LogoutButton/>
                     </div>

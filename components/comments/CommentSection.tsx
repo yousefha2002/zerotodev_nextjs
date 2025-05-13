@@ -7,27 +7,13 @@ import SubmitButton from '../ui/forms/SubmitButton';
 
 type CommentsSectionProps = {
     isAuthenticated: boolean;
-    onAddComment: (comment: any) => void;
     questionId?: number;
     articleId?: number;
 };
 
-export default function CommentSection({isAuthenticated,onAddComment,articleId,questionId}: CommentsSectionProps) {
+export default function CommentSection({isAuthenticated,articleId,questionId}: CommentsSectionProps) {
     const [state, action, isPending] = useActionState(addComment, null);
     const formRef = useRef<HTMLFormElement>(null);
-
-    useEffect(() => {
-        if (state?.success && state.data?.newComment) {
-            const newComment = {
-                id: Date.now(),
-                comment: state.data.newComment,
-                createdAt: new Date().toISOString(),
-                user: { name: 'أنت' },
-            };
-            onAddComment(newComment);
-            formRef.current?.reset();
-        }
-    }, [state]);
 
     return (
         <Shadow className="mt-12 bg-white flex flex-col gap-6">
