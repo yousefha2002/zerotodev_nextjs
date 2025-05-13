@@ -21,7 +21,9 @@ export default async function CommentsPage({ itemId, itemType, page }: Props) {
     return (
         <Container className="py-8">
             <CommentLayout comments={rows.comments} currentUserId={currentUserId} />
-            <Pagination currentPage={page} totalPages={rows.totalPages} />
+            {rows.totalPages > 0 && (
+                <Pagination currentPage={page} totalPages={rows.totalPages} />
+            )}
         </Container>
     );
 }
