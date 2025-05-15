@@ -4,6 +4,7 @@ import Shadow from '../ui/Shadow';
 import { addComment } from '@/actions/user/add-comment';
 import ErrorMessage from '../ui/forms/ErrorMesage';
 import SubmitButton from '../ui/forms/SubmitButton';
+import SuccessMessage from '../ui/forms/SuccessMessage';
 
 type CommentsSectionProps = {
     isAuthenticated: boolean;
@@ -34,6 +35,7 @@ export default function CommentSection({isAuthenticated,articleId,questionId}: C
                     {questionId && (
                         <input type="hidden" name="questionId" value={questionId} />
                     )}
+                    <SuccessMessage>{state?.success}</SuccessMessage>
                     <ErrorMessage>{state?.error}</ErrorMessage>
                     <SubmitButton isPending={isPending}>إضافة</SubmitButton>
                 </form>
