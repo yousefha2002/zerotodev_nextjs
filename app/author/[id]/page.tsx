@@ -13,7 +13,7 @@ export default async function page({params}:{params:Promise<{id:string}>}) {
     if(!user)notFound
     else
     return (
-        <Container className='py-10'>
+        <Container className='py-6'>
             <UserHeader name={user.name} image={user.image} bio={user.bio} points={user.points} jointAt={user.createdAt}/>
             <UserStats
             comments={user.commentsCount}
