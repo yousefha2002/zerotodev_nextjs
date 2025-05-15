@@ -8,7 +8,7 @@ export function UserSocialMedia({ links }: { links: SocialLink[] }) {
     return (
         <Shadow className="bg-white p-4 rounded-xl my-6">
             <h2 className="text-lg font-semibold mb-3">مواقع التواصل الاجتماعي</h2>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2">
                 {links.map((link, index) => (
                     <div key={index}>
                         <SocialIcon
