@@ -17,6 +17,9 @@ export default function Footer() {
                     <Link href="/privacy-policy" className="text-sm hover:underline">
                         سياسة الخصوصية
                     </Link>
+                    <Link href="/contact-us" className="text-sm hover:underline">
+                        تواصل معنا 
+                    </Link>
                 </div>
                 
 
