@@ -1,4 +1,4 @@
-import { FaUserEdit, FaEnvelope, FaLock,FaListAlt } from 'react-icons/fa';
+import { FaUserEdit, FaEnvelope, FaLock,FaListAlt,FaCode,FaShareAlt } from 'react-icons/fa';
 
 export default [
     {
@@ -60,5 +60,25 @@ export default [
             color: '#00BCD4',  // لون سماوي جميل
         },
         bg: '#B2EBF2',  // خلفية سماوية فاتحة
+    },
+    {
+        label: 'المهارات',
+        href: '/dashboard/skills',
+        icon: {
+            component: FaCode,
+            size: 24,
+            color: '#F57C00', // Orange deep
+        },
+        bg: '#FFE0B2', // Light orange background
+    },
+    {
+        label: 'مواقع التواصل',
+        href: '/dashboard/socials',
+        icon: {
+            component: FaShareAlt,
+            size: 24,
+            color: '#1976D2', // Blue
+        },
+        bg: '#BBDEFB', // Light blue background
     }
 ];
