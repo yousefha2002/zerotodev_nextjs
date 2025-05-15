@@ -10,7 +10,7 @@ import React from 'react'
 export default async function page({params}:{params:Promise<{id:string}>}) {
     const {id} = await params ;
     const user = await getUserProfilePublic(+id)
-    if(!user)notFound
+    if(!user)notFound()
     else
     return (
         <Container className='py-6'>
