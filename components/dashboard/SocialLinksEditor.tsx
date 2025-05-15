@@ -38,7 +38,7 @@ export default function SocialLinksEditor({ socialLinks }: { socialLinks: Social
     return (
         <ClientOnly>
             <form className="space-y-5" action={action}>
-                <div className='mb-6'>
+                <div className='mb-6 space-y-2'>
                     {optimisticLinks.map((link) => (
                     <div
                         key={link.id}
