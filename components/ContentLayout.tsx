@@ -3,6 +3,7 @@ import React from 'react';
 import Container from './ui/Container';
 import CommentSection from './comments/CommentSection';
 import CommentSummary from './comments/CommentSummary';
+import GoogleAd from './GoogleAd';
 
 type ContentLayoutProps = {
     content: React.ReactNode;
@@ -22,6 +23,7 @@ export default function ContentLayout({content,commentCount,isAuthenticated,arti
                 articleId={articleId}
                 questionId={questionId}
             />
+            <GoogleAd slot="1234567830" className="my-6" />
         </Container>
     );
 }

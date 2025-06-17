@@ -6,40 +6,46 @@ import Label from "../ui/Label";
 import { ArticleList } from "@/types/Article";
 import formatDate from "@/utils/formatDate";
 
-const ArticleCard = ({ id, title, image, category, headline,publish_date,views }: ArticleList) => {
+const ArticleCard = ({id,title,image,category,headline,publish_date,views,}: ArticleList) => {
     return (
-        <Shadow className="hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 bg-white">
+        <Shadow className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
+        <div className="relative">
             <Image
-                width={300}
-                height={200}
-                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${image}`}
-                alt={title}
-                className="w-full h-48 object-cover rounded-lg mb-6"
+            width={300}
+            height={200}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${image}`}
+            alt={title}
+            className="w-full h-52 object-cover"
             />
+            <div className="absolute top-2 left-2">
+            <Label {...category} />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+        </div>
 
-            <Link href={`/articles/${id}`} passHref>
-                <h3 className="text-2xl font-bold text-dark mb-3 cursor-pointer hover:text-primary transition duration-300 ease-in-out line-clamp-1">
-                    {title}
-                </h3>
+        <div className="p-5">
+            <Link href={`/articles/${id}`}>
+            <h3 className="text-xl font-bold text-gray-800 hover:text-primary transition-colors line-clamp-1">
+                {title}
+            </h3>
             </Link>
 
-            <p className="text-muted text-sm mb-4 line-clamp-3">{headline}</p>
+            <p className="text-gray-600 text-sm mt-2 line-clamp-3 leading-relaxed">
+            {headline}
+            </p>
 
-            <Label {...category}/>
-            
-            <div className="mt-4 flex justify-between items-center text-sm text-muted">
-                <div className="flex items-center gap-x-1">
-                    <FaEye className="text-muted" />
-                    <span>{views}</span>
-                </div>
-
-                <div className="flex items-center gap-x-1">
-                    <FaCalendarAlt className="text-muted" />
-                    <span>{formatDate(publish_date)}</span>
-                </div>
+            <div className="mt-4 flex justify-between items-center text-sm text-gray-500 border-t pt-3">
+            <div className="flex items-center gap-1">
+                <FaEye />
+                <span>{views}</span>
             </div>
+            <div className="flex items-center gap-1">
+                <FaCalendarAlt />
+                <span>{formatDate(publish_date)}</span>
+            </div>
+            </div>
+        </div>
         </Shadow>
     );
 };
-
 export default ArticleCard;

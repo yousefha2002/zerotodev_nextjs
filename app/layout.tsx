@@ -27,6 +27,9 @@ export default async function RootLayout({
   const token = cookie?.value
   return (
     <html lang="ar" dir="rtl">
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX"></script>
+      </head>
       <body className={`${tajawal.className} flex flex-col min-h-screen`}>
         <Navbar token={token}/>
         <main className="flex-grow mt-[72px]">

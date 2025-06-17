@@ -10,7 +10,7 @@ type SidebarCardProps = {
 
 const SidebarCard = ({ title, icon, children }: SidebarCardProps) => {
     return (
-        <Shadow className="bg-white">
+        <Shadow className="bg-white rounded-lg p-4">
             <SidebarTitle title={title} icon={icon} />
             {children}
         </Shadow>
