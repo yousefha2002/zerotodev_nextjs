@@ -23,9 +23,6 @@ export default async function page({ searchParams }: Props) {
     const limit = 10;
 
     const { points, totalPages } = await getUserPoints(page, limit);
-    console.log(points)
-    console.log('aaaaaaaaaa')
-    console.log(totalPages)
 
     return (
         <Container className="py-10">
