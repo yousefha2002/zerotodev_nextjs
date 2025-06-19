@@ -15,11 +15,12 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-    searchParams: { page?: string };
+    searchParams: Promise<{ page?: string; category?: string }>;
 };
 
 export default async function page({ searchParams }: Props) {
-    const page = searchParams.page ? +searchParams.page : 1;
+    const search = await searchParams;
+    const page = search.page ? +search.page : 1;
     const limit = 10;
 
     const { points, totalPages } = await getUserPoints(page, limit);
