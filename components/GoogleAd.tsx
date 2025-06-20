@@ -3,16 +3,16 @@ import React, { useEffect, useRef } from 'react';
 
 interface GoogleAdProps {
     slot: string;
-    className?: string;
     format?: string;
     responsive?: boolean;
+    marginClass?: string; 
 }
 
 const GoogleAd: React.FC<GoogleAdProps> = ({
     slot,
-    className = '',
     format = 'auto',
     responsive = true,
+    marginClass = 'my-8',
 }) => {
     const adRef = useRef<HTMLModElement>(null);
 
@@ -34,10 +34,9 @@ const GoogleAd: React.FC<GoogleAdProps> = ({
     }, []);
 
     if (process.env.NODE_ENV !== 'production') {
-        // إعلان وهمي في وضع التطوير
         return (
             <div
-                className={`my-8 border border-gray-300 bg-gray-100 rounded-md flex items-center justify-center ${className}`}
+                className={`${marginClass} border border-gray-300 bg-gray-100 rounded-md flex items-center justify-center`}
                 style={{ height: 100, color: '#888', fontSize: 16, fontWeight: 'bold' }}
             >
                 إعلان تجريبي - مساحة إعلانية
@@ -45,12 +44,11 @@ const GoogleAd: React.FC<GoogleAdProps> = ({
         );
     }
 
-    // إعلان حقيقي في الإنتاج
     return (
-        <div className='my-8'>
+        <div className={marginClass}>
             <ins
                 ref={adRef}
-                className={`adsbygoogle ${className}`}
+                className={`adsbygoogle`}
                 style={{ display: 'block' }}
                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
                 data-ad-slot={slot}

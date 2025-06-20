@@ -1,6 +1,8 @@
 import QuestionCard from "./QuestionCard";
 import Pagination from "../ui/Pagination";
 import { QuestionList } from "@/types/Question";
+import GoogleAd from "../GoogleAd";
+import React from "react";
 
 type QuestionsListProps = {
     questions: QuestionList[];
@@ -12,11 +14,14 @@ const QuestionsList = ({ questions, currentPage, totalPages }: QuestionsListProp
     return (
         <>
             <div className="space-y-8">
-                {questions.map((q) => (
-                    <QuestionCard
-                        key={q.id+"id"}
-                        {...q}
-                    />
+                {questions.map((question, index) => (
+                    <React.Fragment key={question.id + "id"}>
+                        <QuestionCard {...question} />
+
+                        {index === 2 && (
+                            <GoogleAd slot="1234567897"/>
+                        )}
+                    </React.Fragment>
                 ))}
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} />

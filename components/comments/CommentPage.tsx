@@ -5,6 +5,7 @@ import Pagination from '../ui/Pagination';
 import { getUserAuth } from '@/lib/auth';
 import { getCommentsByItemId } from '@/lib/comment';
 import { ItemType } from '@/utils/enums/ItemType';
+import GoogleAd from '../GoogleAd';
 
 type Props = {
     itemId: number;
@@ -20,6 +21,7 @@ export default async function CommentsPage({ itemId, itemType, page }: Props) {
 
     return (
         <Container className="py-8">
+            <GoogleAd slot="1234567891" marginClass="mb-6" />
             <CommentLayout comments={rows.comments} currentUserId={currentUserId} />
             {rows.totalPages > 0 && (
                 <Pagination currentPage={page} totalPages={rows.totalPages} />

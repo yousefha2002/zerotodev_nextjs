@@ -5,6 +5,7 @@ import SectionTitle from '@/components/ui/SectionTitle'
 import { getTopUsers } from '@/lib/user';
 import { Metadata } from 'next'
 import { projectName } from '@/utils/constants'
+import GoogleAd from '@/components/GoogleAd';
 
 export const metadata: Metadata = {
     title: `المتصدرين | ${projectName}`,
@@ -31,6 +32,7 @@ export default async function page() {
                 :
                 <NotFoundText />
             }
+            <GoogleAd slot="1234567900" marginClass="mt-10" />
         </Container>
     )
 }
