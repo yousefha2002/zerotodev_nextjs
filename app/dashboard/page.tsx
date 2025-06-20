@@ -5,6 +5,7 @@ import Container from '@/components/ui/Container'
 import { getCurrentUser, getUserStats } from '@/lib/user'
 import { Metadata } from 'next'
 import { projectName } from '@/utils/constants'
+import ActiveStatusBox from '@/components/dashboard/ActiveStatusBox'
 
 export const metadata: Metadata = {
     title: `لوحة التحكم | ${projectName}`,
@@ -16,8 +17,10 @@ export default async function page() {
         getCurrentUser(),
         getUserStats()
     ])
+
     return (
         <Container className='py-10'>
+            <ActiveStatusBox active={user.active}/>
             <Actions />
             <StatsList stats={stats} />
             <UserCard user={user} />

@@ -1,35 +1,36 @@
-import { Skill } from "./Skill"
-import { SocialLink } from "./SocialLink"
+import { Skill } from "./Skill";
+import { SocialLink } from "./SocialLink";
 
 type UserBasic = {
-    id:number,
-    name:string,
-    image:string
-}
+  id: number;
+  name: string;
+  image: string;
+};
 
-export type User = UserBasic&{
-    bio:string,
-    email:string
-}
+export type User = UserBasic & {
+  bio: string;
+  email: string;
+  active: boolean;
+};
 
-export type TopUser=UserBasic&{
-    points:number
-}
+export type TopUser = UserBasic & {
+  points: number;
+};
 
 export type UserStats = {
-    points: number,
-    commentsCount: number,
-    articleViewsCount: number
-}
+  points: number;
+  commentsCount: number;
+  articleViewsCount: number;
+};
 
-export type UserProfilePublic = UserBasic&{
-    bio:string,
-    points: number;
-    createdAt: string;
-    commentsCount: number;
-    articlesViewed: number;
-    questionsViewed: number;
-    pointsHistoryCount: number;
-    skills: Skill[];
-    socialmedias: SocialLink[];
-}
+export type UserProfilePublic = UserBasic & {
+  bio: string;
+  points: number;
+  createdAt: string;
+  commentsCount: number;
+  articlesViewed: number;
+  questionsViewed: number;
+  pointsHistoryCount: number;
+  skills: Skill[];
+  socialmedias: SocialLink[];
+};

@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 export default async function page({params}:{params:Promise<{id:string}>}) {
     const {id} = await params 
     const rows = await getViewQuiz(+id)
+    console.log(rows);
     if(!rows){notFound()}
 
     const {quiz,marks,hasSubmitted} = rows
