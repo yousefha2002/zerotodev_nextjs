@@ -27,7 +27,7 @@ export default async function page({ searchParams }: Props) {
 
     return (
         <Container className="py-10">
-        <SectionTitle
+        <SectionTitle 
             title="نقاطي"
             subtitle="هنا يمكنك مشاهدة تفاصيل الأنشطة التي حصلت على النقاط من خلالها."
         />
