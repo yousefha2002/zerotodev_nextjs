@@ -38,21 +38,22 @@ export default function SocialLinksEditor({ socialLinks }: { socialLinks: Social
     return (
         <ClientOnly>
             <form className="space-y-5" action={action}>
-                <div className='mb-6 space-y-2'>
+                <div className="mb-6 space-y-4">
                     {optimisticLinks.map((link) => (
-                    <div
+                        <div
                         key={link.id}
-                        className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded"
-                    >
-                        <SocialIcon url={link.url} />
-                        <button
-                        type="button"
-                        className="text-danger"
-                        onClick={() => handleDeleteSocialLink(link.id)}
+                        className="flex items-center justify-between bg-gradient-to-r from-indigo-50 via-white to-indigo-50 hover:from-indigo-100 hover:to-indigo-100 transition-colors px-6 py-3 rounded-xl shadow-lg group"
                         >
-                        <FaTrash />
+                        <SocialIcon url={link.url} style={{ height: 28, width: 28 }} />
+                        <button
+                            type="button"
+                            onClick={() => handleDeleteSocialLink(link.id)}
+                            className="text-red-500 hover:text-red-700 transition-transform duration-300 transform group-hover:scale-110"
+                            aria-label={`حذف رابط التواصل الاجتماعي`}
+                        >
+                            <FaTrash size={20} />
                         </button>
-                    </div>
+                        </div>
                     ))}
                 </div>
                 <InputField
