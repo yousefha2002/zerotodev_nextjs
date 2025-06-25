@@ -1,3 +1,4 @@
+import GoogleAd from '@/components/GoogleAd';
 import Container from '@/components/ui/Container';
 import { UserHeader } from '@/components/user-public-profile/UserHeader';
 import { UserSkills } from '@/components/user-public-profile/UserSkills';
@@ -23,6 +24,7 @@ export default async function page({params}:{params:Promise<{id:string}>}) {
             />
             <UserSkills skills={user.skills} />
             <UserSocialMedia links={user.socialmedias} />
+            <GoogleAd slot="1234567895" marginClass="my-10" />
         </Container>
     )
 }

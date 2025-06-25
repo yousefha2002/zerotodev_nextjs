@@ -37,20 +37,21 @@ export default function SkillsEditor({ skills }: { skills: Skill[] }) {
     return (
         <ClientOnly>
             <form className="space-y-5" action={action}>
-                <div className="mb-6 space-y-2">
+                <div className="mb-6 space-y-4">
                     {optimisticSkills.map((skill) => (
                         <div
-                            key={skill.id}
-                            className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded"
+                        key={skill.id}
+                        className="flex items-center justify-between bg-gradient-to-r from-indigo-50 via-white to-indigo-50 hover:from-indigo-100 hover:to-indigo-100 transition-colors px-6 py-3 rounded-xl shadow-lg group"
                         >
-                            <span>{skill.title}</span>
-                            <button
-                                type="button"
-                                className="text-danger"
-                                onClick={() => handleDeleteSkill(skill.id)}
-                            >
-                                <FaTrash />
-                            </button>
+                        <span className="text-indigo-900 font-semibold text-lg">{skill.title}</span>
+                        <button
+                            type="button"
+                            onClick={() => handleDeleteSkill(skill.id)}
+                            className="text-red-500 hover:text-red-700 transition-transform duration-300 transform group-hover:scale-110"
+                            aria-label={`حذف مهارة ${skill.title}`}
+                        >
+                            <FaTrash size={20} />
+                        </button>
                         </div>
                     ))}
                 </div>

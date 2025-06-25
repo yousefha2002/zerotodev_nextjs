@@ -1,4 +1,5 @@
 import React from 'react';
+import GoogleAd from '../GoogleAd';
 
 export default function PostBody({
     description,
@@ -10,6 +11,7 @@ export default function PostBody({
     return (
         <div>
             <p className="text-dark text-lg mb-6 leading-relaxed">{description}</p>
+            <GoogleAd slot="1234567890"/>
             <div
                 className="
                     prose 
@@ -22,6 +24,7 @@ export default function PostBody({
                 "
                 dangerouslySetInnerHTML={{ __html: content }}
             />
+            <GoogleAd slot="1234567890"/>
         </div>
     );
 }

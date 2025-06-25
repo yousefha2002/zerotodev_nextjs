@@ -8,6 +8,7 @@ import { ArticleList } from "@/types/Article";
 import { Category } from "@/types/Category";
 import NotFoundText from "../ui/NotFoundText";
 import { ContentList } from "@/types/ContentList";
+import GoogleAd from "../GoogleAd";
 
 type ArticlesPageProps = {
     categories: Category[];
@@ -32,6 +33,7 @@ const ArticlesPage = ({ categories, articles, currentPage, totalPages,latestArti
                     <Categories categories={categories} />
                     <TopArticles articles={latestArticles} />
                     <RandomArticles articles={randomArticles} />
+                    <GoogleAd slot="1234567890" marginClass="my-2"/>
                 </div>
 
                 {/* Article List */}

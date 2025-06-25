@@ -23,7 +23,7 @@ export default function ContentLayout({content,commentCount,isAuthenticated,arti
                 articleId={articleId}
                 questionId={questionId}
             />
-            <GoogleAd slot="1234567830" className="my-6" />
+            <GoogleAd slot="1234567830"/>
         </Container>
     );
 }

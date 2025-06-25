@@ -27,12 +27,12 @@ export default async function page({ searchParams }: Props) {
 
     return (
         <Container className="py-10">
-        <SectionTitle
-            title="نقاطي"
-            subtitle="هنا يمكنك مشاهدة تفاصيل الأنشطة التي حصلت على النقاط من خلالها."
-        />
+            <SectionTitle 
+                title="نقاطي"
+                subtitle="هنا يمكنك مشاهدة تفاصيل الأنشطة التي حصلت على النقاط من خلالها."
+            />
 
-        <PointsList points={points} currentPage={page} totalPages={totalPages} />
+            <PointsList points={points} currentPage={page} totalPages={totalPages} />
         </Container>
     );
 }

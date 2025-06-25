@@ -8,6 +8,7 @@ import NotFoundText from '@/components/ui/NotFoundText'
 import { Metadata } from 'next'
 import { projectName } from '@/utils/constants'
 import React from 'react'
+import GoogleAd from '@/components/GoogleAd'
 
 type Props = {
     searchParams: Promise<{ page?: string; category?: string }>;
@@ -39,6 +40,7 @@ export default async function page({searchParams}: Props) {
                 <div className="lg:col-span-4 flex flex-col gap-8">
                     <TopQuestions questions={latestQuestions} />
                     <RandomQuestions questions={randomQuestions} />
+                    <GoogleAd slot="1234567897" marginClass="my-2" />
                 </div>
 
                 {/* Question List */}

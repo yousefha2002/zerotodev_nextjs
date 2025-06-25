@@ -1,3 +1,5 @@
+import GoogleAd from "../GoogleAd";
+
 export default function QuizResult({score,total,percentage,}: {score: number;total: number;percentage: number}) {
     let resultMessage;
     const scorePercentage = score / total;
@@ -42,6 +44,8 @@ export default function QuizResult({score,total,percentage,}: {score: number;tot
                 {percentage >= 90 ? "🎉 " : null}
                 {resultMessage}
             </p>
+
+            <GoogleAd slot="1234567895" marginClass="my-6" />
 
             {scorePercentage >= 0.7 && (
                 <div className="text-sm sm:text-lg text-center font-bold text-green-600">

@@ -10,21 +10,25 @@ type CardProps = {
 
 const Card = ({ image, title, link }: CardProps) => {
     return (
-        <Shadow className="bg-white hover:shadow-2xl transition-transform transform hover:scale-105 duration-300">
-            <div className="relative">
+        <Shadow className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.03]">
+            <div className="relative w-full h-44 sm:h-48">
                 <Image
                     src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${image}`}
                     alt={title}
-                    width={192}
-                    height={192}
-                    className="w-full h-48 object-cover rounded-t-lg"
+                    fill
+                    className="object-cover"
                 />
-                <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-black opacity-25 rounded-t-lg"></div>
+                <div className="absolute inset-0 bg-black/25" />
             </div>
-            <h3 className="mt-6 text-xl font-semibold text-center text-gray-800 hover:text-primary transition-colors">
-                <Link href={link}>{title}</Link>
-            </h3>
+            <div className="p-3 text-center">
+                <Link href={link}>
+                    <h3 className="text-sm sm:text-base font-medium text-gray-800 hover:text-primary transition-colors duration-200">
+                        {title}
+                    </h3>
+                </Link>
+            </div>
         </Shadow>
     );
 };
+
 export default Card;
