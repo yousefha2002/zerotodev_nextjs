@@ -19,6 +19,15 @@ export default function LoginPage() {
 
                 <LoginForm/>
                 <p className="text-center text-sm text-muted mt-4">
+                      نسيت كلمة المرور ؟{' '}
+                    <Link
+                        href="/request-code"
+                        className="text-primary font-medium hover:underline"
+                    >
+                         إعادة التعيين
+                    </Link>
+                </p>
+                <p className="text-center text-sm text-muted mt-4">
                     ليس لديك حساب ؟{' '}
                     <Link
                         href="/register"
