@@ -2,6 +2,7 @@ import { ArticleList } from "@/types/Article";
 import ArticleCard from "./ArticleCard";
 import Pagination from "../ui/Pagination";
 import GoogleAd from "../GoogleAd"; // ✅ استدعاء مكون الإعلان
+import { Fragment } from "react";
 
 type ArticlesListProps = {
     articles: ArticleList[];
@@ -14,15 +15,14 @@ const ArticlesList = ({ articles, currentPage, totalPages }: ArticlesListProps) 
         <div>
             <div className="space-y-8">
                 {articles.map((article, index) => (
-                    <>
+                    <Fragment key={article.id}>
                         <ArticleCard
-                            key={article.id}
                             {...article}
                         />
                         {index === 2 && (
                             <GoogleAd slot="1234567891" marginClass="my-8" />
                         )}
-                    </>
+                    </Fragment>
                 ))}
             </div>
             <Pagination currentPage={currentPage} totalPages={totalPages} />
