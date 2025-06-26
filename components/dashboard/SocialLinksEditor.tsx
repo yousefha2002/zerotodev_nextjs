@@ -45,18 +45,18 @@ export default function SocialLinksEditor({ socialLinks }: { socialLinks: Social
                         className="flex items-center justify-between bg-gradient-to-r from-indigo-50 via-white to-indigo-50 hover:from-indigo-100 hover:to-indigo-100 transition-colors px-6 py-3 rounded-xl shadow-lg group"
                         >
                         <SocialIcon url={link.url} style={{ height: 28, width: 28 }} />
-                        <button
-                            type="button"
-                            onClick={() => handleDeleteSocialLink(link.id)}
-                            className="text-red-500 hover:text-red-700 transition-transform duration-300 transform group-hover:scale-110"
-                            aria-label={`حذف رابط التواصل الاجتماعي`}
-                        >
-                            <FaTrash size={20} />
-                        </button>
+                            <button
+                                type="button"
+                                onClick={() => handleDeleteSocialLink(link.id)}
+                                className="text-red-500 hover:text-red-700 transition-transform duration-300 transform group-hover:scale-110"
+                                aria-label={`حذف رابط التواصل الاجتماعي`}
+                            >
+                                <FaTrash size={20} />
+                            </button>
                         </div>
                     ))}
                 </div>
-                <InputField
+                <InputField 
                 name="url"
                 placeholder="رابط الحساب"
                 type="url"
