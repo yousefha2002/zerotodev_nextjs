@@ -18,24 +18,21 @@ export default function LoginPage() {
                 <SectionTitle title='تسجيل الدخول'/>
 
                 <LoginForm/>
-                <p className="text-center text-sm text-muted mt-4">
-                      نسيت كلمة المرور ؟{' '}
+                <div className="flex justify-center items-center gap-4 mt-4 text-sm text-muted">
                     <Link
                         href="/request-code"
                         className="text-primary font-medium hover:underline"
                     >
-                         إعادة التعيين
+                        نسيت كلمة المرور ؟
                     </Link>
-                </p>
-                <p className="text-center text-sm text-muted mt-4">
-                    ليس لديك حساب ؟{' '}
+                    <span>|</span>
                     <Link
                         href="/register"
                         className="text-primary font-medium hover:underline"
                     >
-                        انشاء حساب
+                        إنشاء حساب جديد
                     </Link>
-                </p>
+                    </div>
             </Shadow>
         </Container>
     );
