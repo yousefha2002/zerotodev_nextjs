@@ -28,6 +28,6 @@ const ArticlesList = ({ articles, currentPage, totalPages }: ArticlesListProps) 
             <Pagination currentPage={currentPage} totalPages={totalPages} />
         </div>
     );
-};
+}; 
 
 export default ArticlesList;
