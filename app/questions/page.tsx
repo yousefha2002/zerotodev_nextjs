@@ -9,9 +9,10 @@ import { Metadata } from 'next'
 import { projectName } from '@/utils/constants'
 import React from 'react'
 import GoogleAd from '@/components/GoogleAd'
+import SearchByNameForm from '@/components/ui/forms/SearchByNameFor'
 
 type Props = {
-    searchParams: Promise<{ page?: string; category?: string }>;
+    searchParams: Promise<{ page?: string; category?: string, name?:string }>;
 };
 
 export const metadata: Metadata = {
@@ -22,9 +23,10 @@ export const metadata: Metadata = {
 export default async function page({searchParams}: Props) {
     const search = await searchParams;
     const page = search.page ? +search.page : 1;
+    const name = search.name ? search.name : undefined;
 
     const [rows, latestQuestions, randomQuestions] = await Promise.all([
-        getQuestions(page, 5),
+        getQuestions(page, 5,name),
         getLatestQuestions(3),
         getRandomQuestions(3),
     ]);
@@ -38,6 +40,7 @@ export default async function page({searchParams}: Props) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 {/* Sidebar */}
                 <div className="lg:col-span-4 flex flex-col gap-8">
+                    <SearchByNameForm/>
                     <TopQuestions questions={latestQuestions} />
                     <RandomQuestions questions={randomQuestions} />
                     <GoogleAd slot="1234567897" marginClass="my-2" />

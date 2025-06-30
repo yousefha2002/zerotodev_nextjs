@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import React from 'react';
 
 type Props = {
-    searchParams: Promise<{ page?: string; category?: string }>;
+    searchParams: Promise<{ page?: string; category?: string ,name:string}>;
 };
 
 export const metadata: Metadata = {
@@ -18,9 +18,10 @@ export default async function page({searchParams}:Props) {
     const search = await searchParams
     const page = search.page?+search.page :1
     const categoryId = search.category ? +search.category : undefined;
+    const name = search.name ? search.name : undefined;
     const [categories,rows,latestArticles,randomArticles] = await Promise.all([
         getCategories(),
-        getArticles(page, 5, categoryId),
+        getArticles(page, 5, categoryId,name),
         getLatestArticles(3),
         getRandomArticles(3)
     ])
