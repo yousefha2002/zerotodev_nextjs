@@ -24,7 +24,7 @@ export default function QuizQuestion({
                         className={`py-3 px-6 rounded-lg border text-lg font-medium transition-all duration-300
                             ${
                                 selectedAnswer === option.id
-                                    ? "bg-primary text-white border-primary scale-105"
+                                    ? "bg-primary text-white border-primary scale-105 scale-x-[1.02]"
                                     : "bg-white text-dark border-gray-300 hover:bg-accent hover:text-dark"
                             }
                         `}
