@@ -9,6 +9,7 @@ import { Category } from "@/types/Category";
 import NotFoundText from "../ui/NotFoundText";
 import { ContentList } from "@/types/ContentList";
 import GoogleAd from "../GoogleAd";
+import SearchByNameFor from "../ui/forms/SearchByNameFor";
 
 type ArticlesPageProps = {
     categories: Category[];
@@ -20,6 +21,8 @@ type ArticlesPageProps = {
 };
 
 const ArticlesPage = ({ categories, articles, currentPage, totalPages,latestArticles,randomArticles }: ArticlesPageProps) => {
+
+
     return (
         <Container className="py-12">
             <SectionTitle
@@ -30,6 +33,7 @@ const ArticlesPage = ({ categories, articles, currentPage, totalPages,latestArti
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 {/* Sidebar */}
                 <div className="lg:col-span-4 flex flex-col gap-8">
+                    <SearchByNameFor/>
                     <Categories categories={categories} />
                     <TopArticles articles={latestArticles} />
                     <RandomArticles articles={randomArticles} />
