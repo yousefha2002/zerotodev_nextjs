@@ -30,7 +30,7 @@ export default function QuizPage({ questions ,quizId}: { questions: QuestionQuiz
                 setSelectedAnswer(null);
             }
         }
-    };    
+    };     
 
     return (
         <>
