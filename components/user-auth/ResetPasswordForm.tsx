@@ -17,7 +17,7 @@ export default function ResetPasswordForm() {
         name="password"
         type="password"
         required
-        placeholder="أدخل كلمة المرور التحقق"
+        placeholder="أدخل كلمة المرور الجديدة"
         icon={FaLock}
         defaultValue={state?.data.password||""}
         />
